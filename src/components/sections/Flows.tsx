@@ -100,6 +100,7 @@ export function Flows() {
                         src={card.imageSrc}
                         alt={card.imageAlt}
                         fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       {/* Gradient overlay */}

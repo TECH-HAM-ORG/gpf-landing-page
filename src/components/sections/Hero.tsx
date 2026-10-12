@@ -147,6 +147,7 @@ export function Hero() {
                   alt="Merchant wallet balance and deposit interface"
                   width={480}
                   height={270}
+                  priority
                   className="shadow-2xl border border-line"
                 />
               </motion.div>

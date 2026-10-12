@@ -74,7 +74,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${manrope.variable} ${jetbrainsMono.variable} scroll-smooth`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${manrope.variable} ${jetbrainsMono.variable} scroll-smooth`}
+    >
       <head>
         <script
           type="application/ld+json"

@@ -283,13 +283,10 @@ export function NetworksExplorer() {
           </div>
         </div>
 
-        {/* Assets Grid: Flex-wrap centered with fixed card widths */}
-        <motion.div
-          layout={!shouldReduceMotion}
-          className="mt-8 flex flex-wrap justify-center gap-4"
-        >
+        {/* Assets Grid: Flex-wrap centered with fixed card widths and 3-row min-height */}
+        <div className="mt-8 flex flex-wrap justify-center content-start gap-4 min-h-[536px] sm:min-h-[584px]">
           <AnimatePresence mode="popLayout" initial={false}>
-            {filteredAssets.map((asset, index) => {
+            {filteredAssets.map((asset) => {
               const hasMore = asset.networks.length > 3;
               const visibleNetworks = hasMore
                 ? asset.networks.slice(0, 2)
@@ -299,11 +296,11 @@ export function NetworksExplorer() {
               return (
                 <motion.div
                   key={asset.symbol}
-                  layout={!shouldReduceMotion}
+                  layout={shouldReduceMotion ? false : 'position'}
                   tabIndex={0}
                   role="article"
                   aria-label={`${asset.name} (${asset.symbol})`}
-                  initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 12 }}
+                  initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 10 }}
                   animate={
                     shouldReduceMotion
                       ? { opacity: 1, transition: { duration: 0.1 } }
@@ -311,16 +308,8 @@ export function NetworksExplorer() {
                           opacity: 1,
                           y: 0,
                           transition: {
-                            opacity: {
-                              duration: 0.22,
-                              delay: Math.min(index * 0.03, 0.24),
-                              ease: 'easeOut',
-                            },
-                            y: {
-                              duration: 0.22,
-                              delay: Math.min(index * 0.03, 0.24),
-                              ease: 'easeOut',
-                            },
+                            duration: 0.2,
+                            ease: 'easeOut',
                           },
                         }
                   }
@@ -329,8 +318,7 @@ export function NetworksExplorer() {
                       ? { opacity: 0, transition: { duration: 0.1 } }
                       : {
                           opacity: 0,
-                          scale: 0.97,
-                          transition: { duration: 0.14, ease: 'easeIn' },
+                          transition: { duration: 0.12, ease: 'easeIn' },
                         }
                   }
                   transition={
@@ -345,7 +333,11 @@ export function NetworksExplorer() {
                           },
                         }
                   }
-                  className="group relative rounded-2xl bg-white border border-[#E2E8F0] p-4 sm:p-5 flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 w-[calc(50%-8px)] md:w-[calc(33.333%-10.67px)] lg:w-[calc(25%-12px)] xl:w-[calc(20%-12.8px)] h-[168px] sm:h-[184px] transition-[transform,box-shadow,border-color] duration-200 ease-out [@media(hover:hover)]:hover:-translate-y-1 [@media(hover:hover)]:hover:border-violet-300 [@media(hover:hover)]:hover:shadow-[0_16px_32px_-12px_rgba(124,58,237,0.25)]"
+                  style={{
+                    willChange: 'transform',
+                    backfaceVisibility: 'hidden',
+                  }}
+                  className="flex-[0_0_auto] group relative rounded-2xl bg-white border border-[#E2E8F0] p-4 sm:p-5 flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 w-[calc(50%-8px)] md:w-[calc(33.333%-10.67px)] lg:w-[calc(25%-12px)] xl:w-[calc(20%-12.8px)] h-[168px] sm:h-[184px] transition-[box-shadow,border-color] duration-200 ease-out [@media(hover:hover)]:hover:-translate-y-1 [@media(hover:hover)]:hover:border-violet-300 [@media(hover:hover)]:hover:shadow-[0_16px_32px_-12px_rgba(124,58,237,0.25)]"
                 >
                   {/* Top Row: Coin Logo (left) + Type Badge (right) */}
                   <div className="flex items-center justify-between">
@@ -410,38 +402,38 @@ export function NetworksExplorer() {
               );
             })}
           </AnimatePresence>
-        </motion.div>
 
-        {/* Calm Empty State Card */}
-        {filteredAssets.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: shouldReduceMotion ? 0.1 : 0.25 }}
-            className="w-full max-w-md mx-auto my-12 text-center py-10 px-6 rounded-2xl border border-dashed border-[#E2E8F0] bg-white/70 shadow-2xs"
-          >
-            <div className="w-12 h-12 rounded-full bg-violet-50 text-violet-600 flex items-center justify-center mx-auto mb-3">
-              <Layers className="w-6 h-6" />
-            </div>
-            <h3 className="text-base font-bold font-display text-[#0F172A]">
-              No assets on this network yet
-            </h3>
-            <p className="mt-1 text-xs font-medium font-sans text-[#64748B]">
-              Try selecting another network or category filter.
-            </p>
-            <button
-              type="button"
-              onClick={() => {
-                setActiveCategory('All');
-                setSelectedChain('All Chains');
-              }}
-              className="mt-4 inline-flex items-center justify-center px-4 py-2 rounded-xl text-xs font-semibold font-sans bg-violet-50 text-violet-700 hover:bg-violet-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+          {/* Calm Empty State Card */}
+          {filteredAssets.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: shouldReduceMotion ? 0.1 : 0.2 }}
+              className="w-full max-w-md mx-auto my-auto text-center py-10 px-6 rounded-2xl border border-dashed border-[#E2E8F0] bg-white/70 shadow-2xs self-center"
             >
-              Reset filters
-            </button>
-          </motion.div>
-        )}
+              <div className="w-12 h-12 rounded-full bg-violet-50 text-violet-600 flex items-center justify-center mx-auto mb-3">
+                <Layers className="w-6 h-6" />
+              </div>
+              <h3 className="text-base font-bold font-display text-[#0F172A]">
+                No assets on this network yet
+              </h3>
+              <p className="mt-1 text-xs font-medium font-sans text-[#64748B]">
+                Try selecting another network or category filter.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveCategory('All');
+                  setSelectedChain('All Chains');
+                }}
+                className="mt-4 inline-flex items-center justify-center px-4 py-2 rounded-xl text-xs font-semibold font-sans bg-violet-50 text-violet-700 hover:bg-violet-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+              >
+                Reset filters
+              </button>
+            </motion.div>
+          )}
+        </div>
 
         {/* Footnote */}
         <div className="mt-12 text-center">
