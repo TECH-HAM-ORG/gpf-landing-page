@@ -33,11 +33,11 @@ export function FiatPayouts() {
           {/* Left Column (5 cols) */}
           <div className="lg:col-span-5 flex flex-col justify-center">
             <Reveal>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 border border-violet-100/80 text-violet-700 text-xs font-semibold uppercase tracking-wider mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 border border-violet-100/80 text-violet-700 text-[13px] font-semibold mb-4 font-sans">
                 <span className="h-1.5 w-1.5 rounded-full bg-violet-600 animate-pulse" />
                 Crypto to Fiat
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink leading-tight">
+              <h2 className="text-[clamp(2rem,3.6vw,3.25rem)] font-bold font-display tracking-[-0.03em] text-ink leading-[1.1]">
                 Cash out to local banks in Argentina and Brazil.
               </h2>
             </Reveal>
@@ -49,7 +49,7 @@ export function FiatPayouts() {
                     <div className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/70 shrink-0 mt-0.5">
                       <Check className="h-3.5 w-3.5 stroke-[2.5]" aria-hidden="true" />
                     </div>
-                    <span className="text-base text-slate font-normal leading-relaxed">
+                    <span className="text-base text-[#475569] font-normal leading-[1.6] font-sans">
                       {bullet}
                     </span>
                   </div>
@@ -71,11 +71,11 @@ export function FiatPayouts() {
                     <Landmark className="h-4 w-4" />
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-semibold text-ink">USDT</span>
+                    <span className="text-sm font-semibold font-display text-ink">USDT</span>
                     <div className="flex h-5 w-5 items-center justify-center rounded-full bg-violet-50 text-violet-600">
                       <ArrowRight className="h-3 w-3" />
                     </div>
-                    <span className="text-sm font-semibold text-ink">Local Bank</span>
+                    <span className="text-sm font-semibold font-display text-ink">Local Bank</span>
                   </div>
                 </div>
               </FloatingCard>
@@ -106,7 +106,7 @@ export function FiatPayouts() {
 
                     {/* Top Pill */}
                     <div className="absolute top-5 left-5 z-10">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/25 px-3 py-1 text-xs font-medium text-white shadow-sm">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/25 px-3 py-1 text-xs font-semibold font-sans text-white shadow-sm">
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                         Bank payout
                       </span>
@@ -115,10 +115,10 @@ export function FiatPayouts() {
                     {/* Bottom Country Name & Currency Details */}
                     <div className="absolute inset-x-0 bottom-0 p-6 z-10 flex items-end justify-between">
                       <div>
-                        <h3 className="text-2xl font-bold tracking-tight text-white">
+                        <h3 className="text-2xl font-bold font-display tracking-tight text-white">
                           {card.country}
                         </h3>
-                        <p className="mt-1 text-xs font-mono font-medium text-slate-300">
+                        <p className="mt-1 text-xs font-sans font-medium text-slate-300">
                           Direct {card.currency} Rail
                         </p>
                       </div>

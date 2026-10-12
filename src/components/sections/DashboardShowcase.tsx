@@ -140,7 +140,7 @@ export function DashboardShowcase() {
                     aria-selected={isActive}
                     aria-controls={`panel-${tab.id}`}
                     onClick={() => setActiveIndex(idx)}
-                    className={`relative shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all snap-start ${
+                    className={`relative shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold font-sans transition-all snap-start ${
                       isActive
                         ? 'text-white'
                         : 'text-slate bg-soft hover:bg-violet-50 hover:text-ink border border-line'
@@ -216,15 +216,15 @@ export function DashboardShowcase() {
                     {/* Title and one line text */}
                     <div className="relative z-10 min-w-0 flex-1">
                       <h3
-                        className={`text-sm sm:text-base font-semibold transition-colors ${
+                        className={`text-base font-bold font-display transition-colors ${
                           isActive ? 'text-ink' : 'text-ink-2 group-hover:text-ink'
                         }`}
                       >
                         {tab.title}
                       </h3>
                       <p
-                        className={`mt-1 text-xs sm:text-sm leading-relaxed transition-colors ${
-                          isActive ? 'text-slate font-normal' : 'text-muted group-hover:text-slate'
+                        className={`mt-1 text-xs sm:text-sm leading-relaxed font-sans transition-colors ${
+                          isActive ? 'text-[#475569] font-normal' : 'text-muted group-hover:text-slate'
                         }`}
                       >
                         {tab.line}
@@ -246,7 +246,7 @@ export function DashboardShowcase() {
                 url={`app.globpayflow/${currentTab.slug}`}
                 className="w-full shadow-card border-line/80 overflow-hidden"
                 toolbarRight={
-                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-muted">
+                  <div className="flex items-center gap-1.5 text-xs font-sans text-muted">
                     <span
                       className={`h-1.5 w-1.5 rounded-full ${
                         isHovered ? 'bg-amber-400' : 'bg-emerald-400 animate-pulse'

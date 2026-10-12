@@ -65,7 +65,7 @@ export function Hero() {
             {/* H1 Heading */}
             <motion.h1
               variants={itemVariants}
-              className="mt-6 text-[clamp(2.5rem,5vw,4.25rem)] font-bold tracking-tight text-ink leading-[1.08]"
+              className="mt-6 text-[clamp(2.5rem,5.2vw,4.5rem)] font-extrabold font-display tracking-[-0.035em] text-ink leading-[1.05]"
             >
               Crypto payments,{' '}
               <span className="text-gradient">built for business.</span>
@@ -74,7 +74,7 @@ export function Hero() {
             {/* Subtitle (max 30 words) */}
             <motion.p
               variants={itemVariants}
-              className="mt-6 text-base sm:text-lg text-slate leading-relaxed max-w-xl"
+              className="mt-6 text-base sm:text-[19px] text-[#475569] leading-[1.6] max-w-xl font-sans font-normal"
             >
               Accept crypto deposits, withdraw to wallets or local banks, and track everything from one merchant dashboard or API.
             </motion.p>
@@ -97,7 +97,7 @@ export function Hero() {
             {/* 3 Small Checks */}
             <motion.div
               variants={itemVariants}
-              className="mt-10 pt-6 border-t border-line flex flex-wrap items-center gap-y-3 gap-x-6 text-xs sm:text-sm font-medium text-slate"
+              className="mt-10 pt-6 border-t border-line flex flex-wrap items-center gap-y-3 gap-x-6 text-sm font-medium text-slate font-sans"
             >
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-violet-600 shrink-0" aria-hidden="true" />
@@ -193,7 +193,7 @@ export function Hero() {
 
             {/* Tiny Sample data notice */}
             <div className="mt-10 sm:mt-12 text-right pr-2">
-              <span className="text-[10px] font-mono text-muted tracking-wider uppercase">
+              <span className="text-xs font-semibold text-muted font-sans">
                 Sample data
               </span>
             </div>

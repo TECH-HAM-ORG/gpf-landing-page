@@ -64,11 +64,11 @@ export function Security() {
           {/* Left Column (5 cols): Eyebrow, H2, Request Signing Mini Diagram */}
           <div className="lg:col-span-5">
             <Reveal>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-400/20 text-violet-300 text-xs font-semibold uppercase tracking-wider mb-4 backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-400/20 text-violet-300 text-[13px] font-semibold mb-4 backdrop-blur-md font-sans">
                 <span className="h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse" />
                 Security
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+              <h2 className="text-[clamp(2rem,3.6vw,3.25rem)] font-bold font-display tracking-[-0.03em] text-white leading-[1.1]">
                 Built so your money moves only where you allow.
               </h2>
             </Reveal>
@@ -76,16 +76,16 @@ export function Security() {
             {/* Stylised "Request Signing" Mini Diagram Visual */}
             <Reveal delay={0.15}>
               <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-5 sm:p-6 shadow-2xl">
-                <div className="flex items-center justify-between pb-3 border-b border-white/10 text-xs font-mono">
+                <div className="flex items-center justify-between pb-3 border-b border-white/10 text-xs font-sans">
                   <div className="flex items-center gap-2 text-violet-300 font-semibold">
                     <Code2 className="h-4 w-4" />
                     <span>HMAC-SHA256 Signing Pipeline</span>
                   </div>
-                  <span className="text-[10px] text-slate-400">5-min window</span>
+                  <span className="text-xs text-slate-400 font-sans">5-min window</span>
                 </div>
 
                 {/* Input Parameters Stream */}
-                <div className="mt-4 space-y-2 font-mono text-[11px]">
+                <div className="mt-4 space-y-2 font-mono text-xs">
                   <div className="flex items-center justify-between bg-slate-900/60 rounded-lg p-2 border border-white/5">
                     <div className="flex items-center gap-2 text-slate-300">
                       <Clock className="h-3 w-3 text-violet-400" />
@@ -113,7 +113,7 @@ export function Security() {
 
                 {/* Downward Transform Arrow */}
                 <div className="flex items-center justify-center my-3">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-violet-600/30 border border-violet-400/30 text-[10px] font-mono text-violet-200">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-violet-600/30 border border-violet-400/30 text-xs font-sans text-violet-200">
                     <span>Secret Key Hash</span>
                     <ArrowRight className="h-3 w-3" />
                   </div>
@@ -122,10 +122,10 @@ export function Security() {
                 {/* Output HMAC Signature */}
                 <div className="rounded-xl bg-violet-950/80 border border-violet-500/40 p-3 flex items-center justify-between">
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-mono text-violet-300 uppercase tracking-wider">
+                    <span className="text-xs font-sans text-violet-300">
                       api-signature
                     </span>
-                    <span className="text-xs font-mono font-bold text-white tracking-wider">
+                    <span className="text-xs font-mono font-bold text-white">
                       e3b0c44298fc1c149afbf4c8...
                     </span>
                   </div>
@@ -146,11 +146,11 @@ export function Security() {
                         {control.icon}
                       </div>
 
-                      <h3 className="text-base font-bold text-white tracking-tight">
+                      <h3 className="text-base sm:text-lg font-bold font-display text-white tracking-tight">
                         {control.title}
                       </h3>
 
-                      <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                         {control.description}
                       </p>
                     </div>

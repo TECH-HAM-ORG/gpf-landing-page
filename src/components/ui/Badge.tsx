@@ -23,7 +23,7 @@ export function Badge({
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border ${variantStyles} ${className}`.trim()}
+      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold font-sans border ${variantStyles} ${className}`.trim()}
     >
       {dot && (
         <span

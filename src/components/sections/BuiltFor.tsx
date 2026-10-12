@@ -68,10 +68,10 @@ export function BuiltFor() {
 
                 {/* Text Content: White title and 1 line */}
                 <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 flex flex-col justify-end z-10">
-                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+                  <h3 className="text-[22px] font-bold font-display tracking-tight text-white">
                     {useCase.title}
                   </h3>
-                  <p className="mt-2 text-sm sm:text-base font-normal text-slate-200 leading-relaxed">
+                  <p className="mt-2 text-sm sm:text-base font-normal text-slate-200 leading-relaxed font-sans">
                     {useCase.line}
                   </p>
                 </div>

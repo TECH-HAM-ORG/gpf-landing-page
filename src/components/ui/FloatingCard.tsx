@@ -45,13 +45,13 @@ export function FloatingCard({
                 </div>
               )}
               {title && (
-                <span className="text-xs font-medium text-slate">{title}</span>
+                <span className="text-xs font-medium text-slate font-sans">{title}</span>
               )}
             </div>
             {statusPill && (
               typeof statusPill === 'string' ? (
                 <span
-                  className={`rounded-full px-2.5 py-0.5 text-[10px] font-mono font-semibold ${pillStyles}`}
+                  className={`rounded-full px-2.5 py-0.5 text-xs font-semibold font-sans ${pillStyles}`}
                 >
                   {statusPill}
                 </span>
@@ -61,7 +61,7 @@ export function FloatingCard({
             )}
           </div>
           {value && (
-            <p className="text-base sm:text-lg font-bold font-mono text-ink mt-0.5">{value}</p>
+            <p className="text-base sm:text-lg font-bold font-display text-ink mt-0.5">{value}</p>
           )}
           {children}
         </div>

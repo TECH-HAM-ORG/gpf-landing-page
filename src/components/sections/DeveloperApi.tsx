@@ -46,11 +46,11 @@ export function DeveloperApi() {
           <div className="lg:col-span-5 space-y-8">
             <div>
               <Reveal>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 border border-violet-100/80 text-violet-700 text-xs font-semibold uppercase tracking-wider mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 border border-violet-100/80 text-violet-700 text-[13px] font-semibold mb-4 font-sans">
                   <span className="h-1.5 w-1.5 rounded-full bg-violet-600" />
                   Developers
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink leading-tight">
+                <h2 className="text-[clamp(2rem,3.6vw,3.25rem)] font-bold font-display tracking-[-0.03em] text-ink leading-[1.1]">
                   Integrate in an afternoon.
                 </h2>
               </Reveal>
@@ -63,7 +63,7 @@ export function DeveloperApi() {
                       <div className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 shrink-0">
                         <Check className="h-3 w-3 stroke-[2.5]" />
                       </div>
-                      <span className="text-sm font-medium text-slate">{check}</span>
+                      <span className="text-sm font-medium text-slate font-sans">{check}</span>
                     </div>
                   </Reveal>
                 ))}
@@ -72,7 +72,7 @@ export function DeveloperApi() {
 
             {/* Endpoint List as Method Pills */}
             <div>
-              <span className="text-xs font-mono font-semibold uppercase tracking-wider text-muted">
+              <span className="text-[13px] font-sans font-semibold text-muted">
                 Core REST Endpoints
               </span>
               <div className="mt-3 space-y-2">
@@ -83,7 +83,7 @@ export function DeveloperApi() {
                   >
                     <div className="flex items-center gap-2.5 truncate">
                       <span
-                        className={`rounded-md px-2 py-0.5 text-[10px] font-bold shrink-0 uppercase tracking-wide ${
+                        className={`rounded-md px-2.5 py-0.5 text-xs font-bold font-sans shrink-0 ${
                           ep.method === 'POST'
                             ? 'bg-violet-50 text-violet-700 border border-violet-200/60'
                             : 'bg-cyan-50 text-cyan-700 border border-cyan-200/60'
@@ -91,7 +91,7 @@ export function DeveloperApi() {
                       >
                         {ep.method}
                       </span>
-                      <span className="font-semibold text-ink truncate">{ep.path}</span>
+                      <span className="font-semibold text-ink font-mono truncate">{ep.path}</span>
                     </div>
                   </div>
                 ))}
@@ -117,7 +117,7 @@ export function DeveloperApi() {
                     <button
                       type="button"
                       onClick={() => setActiveTab('sign')}
-                      className={`px-3 py-1.5 text-xs font-mono font-medium rounded-lg transition-colors ${
+                      className={`px-3 py-1.5 text-xs font-sans font-medium rounded-lg transition-colors ${
                         activeTab === 'sign'
                           ? 'bg-violet-600/30 text-violet-300 border border-violet-500/30'
                           : 'text-slate-400 hover:text-slate-200'
@@ -128,7 +128,7 @@ export function DeveloperApi() {
                     <button
                       type="button"
                       onClick={() => setActiveTab('deposit')}
-                      className={`px-3 py-1.5 text-xs font-mono font-medium rounded-lg transition-colors ${
+                      className={`px-3 py-1.5 text-xs font-sans font-medium rounded-lg transition-colors ${
                         activeTab === 'deposit'
                           ? 'bg-violet-600/30 text-violet-300 border border-violet-500/30'
                           : 'text-slate-400 hover:text-slate-200'
@@ -139,7 +139,7 @@ export function DeveloperApi() {
                     <button
                       type="button"
                       onClick={() => setActiveTab('withdrawal')}
-                      className={`px-3 py-1.5 text-xs font-mono font-medium rounded-lg transition-colors ${
+                      className={`px-3 py-1.5 text-xs font-sans font-medium rounded-lg transition-colors ${
                         activeTab === 'withdrawal'
                           ? 'bg-violet-600/30 text-violet-300 border border-violet-500/30'
                           : 'text-slate-400 hover:text-slate-200'
@@ -153,7 +153,7 @@ export function DeveloperApi() {
                   <button
                     type="button"
                     onClick={handleCopy}
-                    className="flex items-center gap-1.5 rounded-lg border border-slate-700/80 bg-slate-800/80 px-2.5 py-1 text-xs font-mono text-slate-300 hover:text-white hover:border-slate-600 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                    className="flex items-center gap-1.5 rounded-lg border border-slate-700/80 bg-slate-800/80 px-2.5 py-1 text-xs font-sans text-slate-300 hover:text-white hover:border-slate-600 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                   >
                     {copied ? (
                       <>
@@ -232,7 +232,7 @@ export function DeveloperApi() {
 
               {/* Status Code Chips & Semantics */}
               <div className="mt-5 rounded-2xl border border-line bg-soft p-5">
-                <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-muted">
+                <span className="text-[13px] font-sans font-semibold text-muted">
                   HTTP Status Codes
                 </span>
                 <div className="mt-2.5 flex flex-wrap gap-2">

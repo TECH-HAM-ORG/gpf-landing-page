@@ -30,7 +30,7 @@ export function NetworksStrip() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
             {/* Small label: "Works with" */}
             <div className="shrink-0 flex items-center gap-3">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted whitespace-nowrap">
+              <span className="text-[13px] font-semibold text-muted whitespace-nowrap font-sans">
                 Works with
               </span>
               <span className="hidden sm:inline-block h-4 w-px bg-line" aria-hidden="true" />

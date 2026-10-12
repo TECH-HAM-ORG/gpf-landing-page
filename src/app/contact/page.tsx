@@ -133,16 +133,16 @@ export default function ContactPage() {
       <main className="flex-1 py-16 sm:py-24 bg-soft border-b border-line">
         <Container size="narrow">
           <div className="text-center max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 border border-violet-100/80 text-violet-700 text-xs font-semibold uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 border border-violet-100/80 text-violet-700 text-[13px] font-semibold mb-4 font-sans">
               <span className="h-1.5 w-1.5 rounded-full bg-violet-600" />
               Institutional Onboarding
             </div>
 
-            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-ink leading-tight">
+            <h1 className="font-display text-[clamp(2.5rem,5.2vw,4.5rem)] font-extrabold tracking-[-0.035em] text-ink leading-[1.05]">
               Request Platform Access
             </h1>
 
-            <p className="mt-4 text-sm sm:text-base text-slate leading-relaxed">
+            <p className="mt-4 text-base sm:text-[19px] text-[#475569] leading-[1.6] font-sans">
               Connect with our solutions team for customized API credentials, merchant account setup, and testnet integration access.
             </p>
           </div>
@@ -216,7 +216,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-xs font-mono uppercase tracking-wider text-slate font-semibold mb-2"
+                      className="block text-[13px] font-semibold text-slate-700 mb-2 font-sans"
                     >
                       Full Name <span className="text-violet-600">*</span>
                     </label>
@@ -242,7 +242,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-xs font-mono uppercase tracking-wider text-slate font-semibold mb-2"
+                      className="block text-[13px] font-semibold text-slate-700 mb-2 font-sans"
                     >
                       Work Email <span className="text-violet-600">*</span>
                     </label>
@@ -271,7 +271,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="company"
-                      className="block text-xs font-mono uppercase tracking-wider text-slate font-semibold mb-2"
+                      className="block text-[13px] font-semibold text-slate-700 mb-2 font-sans"
                     >
                       Company <span className="text-violet-600">*</span>
                     </label>
@@ -297,7 +297,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="country"
-                      className="block text-xs font-mono uppercase tracking-wider text-slate font-semibold mb-2"
+                      className="block text-[13px] font-semibold text-slate-700 mb-2 font-sans"
                     >
                       Country <span className="text-violet-600">*</span>
                     </label>
@@ -325,7 +325,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="monthlyVolume"
-                    className="block text-xs font-mono uppercase tracking-wider text-slate font-semibold mb-2"
+                    className="block text-[13px] font-semibold text-slate-700 mb-2 font-sans"
                   >
                     Estimated Monthly Volume <span className="text-violet-600">*</span>
                   </label>
@@ -356,7 +356,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-xs font-mono uppercase tracking-wider text-slate font-semibold mb-2"
+                    className="block text-[13px] font-semibold text-slate-700 mb-2 font-sans"
                   >
                     Message &amp; Integration Details <span className="text-violet-600">*</span>
                   </label>

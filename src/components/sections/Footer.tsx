@@ -73,12 +73,12 @@ export function Footer() {
                 height={32}
                 className="h-8 w-8 object-contain shrink-0"
               />
-              <span className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+              <span className="text-xl sm:text-2xl font-bold font-display tracking-tight text-white">
                 Glob<span className="text-violet-400">PayFlow</span>
               </span>
             </Link>
 
-            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-sm text-slate-400 leading-relaxed max-w-sm font-sans">
               Crypto payments, built for business. Scalable multi-chain payment infrastructure for companies and merchants.
             </p>
 
@@ -91,7 +91,7 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-mono text-slate-400 hover:text-white transition-colors"
+                    className="text-xs font-sans text-slate-400 hover:text-white transition-colors"
                   >
                     {social.label}
                   </a>
@@ -103,10 +103,10 @@ export function Footer() {
           {/* 4 Defined Columns: Product, Developers, Company, Legal */}
           {columns.map((col) => (
             <div key={col.title} className="space-y-3">
-              <p className="text-xs font-mono font-bold uppercase tracking-wider text-white">
+              <p className="text-[13px] font-semibold text-white font-sans">
                 {col.title}
               </p>
-              <ul className="space-y-2.5 text-sm">
+              <ul className="space-y-2.5 text-sm font-sans">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     {link.isInternal ? (

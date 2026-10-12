@@ -30,12 +30,12 @@ export function SectionHeading({
           <Badge dot>{tagText}</Badge>
         </div>
       )}
-      <h2 className="text-[clamp(2rem,3.5vw,3rem)] font-semibold tracking-tight text-ink leading-tight">
+      <h2 className="text-[clamp(2rem,3.6vw,3.25rem)] font-bold font-display tracking-[-0.03em] text-ink leading-[1.1]">
         {title}
       </h2>
       {description && (
         <p
-          className={`mt-4 text-base sm:text-lg text-slate max-w-2xl leading-relaxed ${
+          className={`mt-4 text-base sm:text-[19px] text-[#475569] max-w-2xl leading-[1.6] font-sans font-normal ${
             isCentered ? 'mx-auto' : ''
           }`}
         >

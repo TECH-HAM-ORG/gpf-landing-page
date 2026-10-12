@@ -21,11 +21,11 @@ export function FinalCta() {
             />
 
             <div className="relative z-10 max-w-2xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white">
+              <h2 className="text-[clamp(2rem,3.6vw,3.25rem)] font-bold font-display tracking-[-0.03em] leading-[1.1] text-white">
                 Ready to accept crypto?
               </h2>
 
-              <p className="mt-4 text-base sm:text-lg text-violet-100 font-normal leading-relaxed">
+              <p className="mt-4 text-base sm:text-[19px] text-violet-100 font-normal leading-[1.6] font-sans">
                 Connect your business to 11 blockchains, configure transparent fee structures, and disburse local fiat payouts in Argentina and Brazil.
               </p>
 

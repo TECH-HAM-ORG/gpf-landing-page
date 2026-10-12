@@ -106,53 +106,53 @@ export function Steps() {
                     {/* Large numbered circle with violet-to-indigo gradient ring */}
                     <div className="flex items-center justify-between">
                       <div className="relative flex h-14 w-14 items-center justify-center rounded-full p-[2px] bg-brand-gradient shadow-md shadow-violet-500/20 group-hover:scale-105 transition-transform duration-300">
-                        <div className="flex h-full w-full items-center justify-center rounded-full bg-white text-lg font-bold font-mono text-ink">
+                        <div className="flex h-full w-full items-center justify-center rounded-full bg-white text-lg font-bold font-display text-ink">
                           {item.step}
                         </div>
                       </div>
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-muted font-semibold">
-                        Step 0{item.step}
+                      <span className="text-[13px] font-semibold text-muted font-sans">
+                        Step {item.step}
                       </span>
                     </div>
 
                     {/* Title & 2-line text */}
-                    <h3 className="mt-6 text-xl font-bold text-ink group-hover:text-violet-700 transition-colors">
+                    <h3 className="mt-6 text-[22px] font-bold font-display text-ink group-hover:text-violet-700 transition-colors">
                       {item.title}
                     </h3>
-                    <p className="mt-2.5 text-sm text-slate leading-relaxed min-h-[48px]">
+                    <p className="mt-2.5 text-sm text-[#475569] leading-relaxed min-h-[48px] font-sans">
                       {item.description}
                     </p>
                   </div>
 
                   {/* Small visual snippet at the bottom built with divs */}
                   <div className="mt-6 pt-5 border-t border-line/80">
-                    <div className="rounded-2xl border border-line bg-white p-3.5 space-y-2 text-xs font-mono shadow-2xs">
-                      <div className="flex items-center justify-between text-muted text-[11px]">
+                    <div className="rounded-2xl border border-line bg-white p-3.5 space-y-2 text-xs font-sans shadow-2xs">
+                      <div className="flex items-center justify-between text-muted text-xs font-sans">
                         <span>{item.snippet.header}</span>
                         {item.snippet.badgeColor === 'emerald' ? (
-                          <span className="text-emerald-700 bg-emerald-50 border border-emerald-200/60 font-semibold px-2 py-0.5 rounded-full text-[10px] flex items-center gap-1">
+                          <span className="text-emerald-700 bg-emerald-50 border border-emerald-200/60 font-semibold px-2.5 py-0.5 rounded-full text-xs font-sans flex items-center gap-1">
                             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                             {item.snippet.badge}
                           </span>
                         ) : (
-                          <span className="text-violet-700 bg-violet-50 border border-violet-200/60 font-semibold px-2 py-0.5 rounded-full text-[10px]">
+                          <span className="text-violet-700 bg-violet-50 border border-violet-200/60 font-semibold px-2.5 py-0.5 rounded-full text-xs font-sans">
                             {item.snippet.badge}
                           </span>
                         )}
                       </div>
 
                       <div className="flex items-center justify-between bg-soft rounded-xl px-2.5 py-1.5 border border-line/60">
-                        <span className="text-slate text-[10px]">{item.snippet.row1Label}</span>
-                        <span className="text-ink font-semibold text-[10px] truncate max-w-[130px]">
+                        <span className="text-slate text-xs font-sans">{item.snippet.row1Label}</span>
+                        <span className="text-ink font-semibold text-xs font-mono truncate max-w-[130px]">
                           {item.snippet.row1Val}
                         </span>
                       </div>
 
                       <div className="flex items-center justify-between bg-violet-50/60 rounded-xl px-2.5 py-1.5 border border-violet-100">
-                        <span className="font-sans font-medium text-slate text-[10px]">
+                        <span className="font-sans font-medium text-slate text-xs">
                           {item.snippet.row2Label}
                         </span>
-                        <span className="font-bold text-violet-700 text-[10px]">
+                        <span className="font-bold text-violet-700 text-xs font-display">
                           {item.snippet.row2Val}
                         </span>
                       </div>

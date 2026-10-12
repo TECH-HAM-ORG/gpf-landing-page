@@ -29,10 +29,10 @@ export function LegalLayout({
             <div className="flex items-start gap-3.5">
               <AlertTriangle className="h-5 w-5 shrink-0 text-amber-600 mt-0.5" aria-hidden="true" />
               <div className="space-y-1 text-xs sm:text-sm">
-                <p className="font-bold uppercase tracking-wider text-amber-800 font-mono text-[11px] sm:text-xs">
+                <p className="font-semibold text-amber-800 font-sans text-xs">
                   Draft, to be reviewed by legal
                 </p>
-                <p className="text-amber-800/90 leading-relaxed">
+                <p className="text-amber-800/90 leading-relaxed font-sans">
                   This document serves as an operational architecture outline. It represents a working draft and must be formally reviewed, adapted, and approved by qualified legal counsel prior to binding commercial execution.
                 </p>
               </div>
@@ -45,15 +45,15 @@ export function LegalLayout({
               {badge}
             </Badge>
 
-            <h1 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+            <h1 className="mt-4 font-display text-[clamp(2.5rem,5.2vw,4.5rem)] font-extrabold tracking-[-0.035em] text-slate-900 leading-[1.05]">
               {title}
             </h1>
 
-            <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">
+            <p className="mt-4 text-base sm:text-[19px] text-[#475569] leading-[1.6] font-sans">
               {description}
             </p>
 
-            <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-mono text-slate-500">
+            <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-sans text-slate-500">
               <Clock className="h-3.5 w-3.5" />
               <span>Last updated: {lastUpdated}</span>
             </div>

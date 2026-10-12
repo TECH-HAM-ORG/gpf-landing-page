@@ -109,15 +109,15 @@ export function Flows() {
                       />
                       {/* Overlay card inside image */}
                       <div className="relative z-20 w-full rounded-2xl bg-white/95 backdrop-blur-md p-3.5 border border-white/40 shadow-xl">
-                        <div className="flex items-center justify-between text-xs font-mono">
-                          <span className="font-bold text-ink">ARS &amp; BRL Payouts</span>
-                          <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60">
+                        <div className="flex items-center justify-between text-xs font-sans">
+                          <span className="font-bold font-display text-ink">ARS &amp; BRL Payouts</span>
+                          <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60 font-sans">
                             Bank Rails
                           </span>
                         </div>
-                        <div className="mt-2 flex items-center justify-between text-[11px] text-slate">
+                        <div className="mt-2 flex items-center justify-between text-xs text-slate font-sans">
                           <span>Beneficiary Verification</span>
-                          <span className="font-mono font-semibold text-ink">Confirmed</span>
+                          <span className="font-sans font-semibold text-ink">Confirmed</span>
                         </div>
                       </div>
                     </div>
@@ -131,13 +131,13 @@ export function Flows() {
                         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-50 text-violet-700 border border-violet-100/80 shrink-0 group-hover:scale-105 transition-transform">
                           <Icon className="h-5 w-5" aria-hidden="true" />
                         </div>
-                        <h3 className="text-xl font-bold text-ink group-hover:text-violet-700 transition-colors">
+                        <h3 className="text-[22px] font-bold font-display text-ink group-hover:text-violet-700 transition-colors">
                           {card.title}
                         </h3>
                       </div>
 
                       {/* 2-line description */}
-                      <p className="mt-3 text-sm text-slate leading-relaxed min-h-[40px]">
+                      <p className="mt-3 text-sm text-[#475569] leading-relaxed min-h-[40px] font-sans">
                         {card.description}
                       </p>
 
@@ -146,7 +146,7 @@ export function Flows() {
                         {card.bullets.map((bullet) => (
                           <li
                             key={bullet}
-                            className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-800"
+                            className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-800 font-sans"
                           >
                             <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
                               <Check className="h-2.5 w-2.5 stroke-[3]" />
@@ -161,7 +161,7 @@ export function Flows() {
                     <div className="mt-6 pt-4 border-t border-line">
                       <a
                         href={card.href}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-violet-700 hover:text-violet-900 group-hover:translate-x-1 transition-all"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold font-display text-violet-700 hover:text-violet-900 group-hover:translate-x-1 transition-all"
                       >
                         <span>Learn more</span>
                         <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -175,13 +175,13 @@ export function Flows() {
         </div>
 
         {/* Slim row of 3 chips below the cards */}
-        <div className="mt-14 pt-8 border-t border-line flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-xs font-mono">
+        <div className="mt-14 pt-8 border-t border-line flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-xs font-sans">
           <span className="text-muted font-sans text-xs">Also included:</span>
           <div className="flex flex-wrap items-center justify-center gap-2.5">
             {SLIM_CHIPS.map((chip) => (
               <span
                 key={chip}
-                className="rounded-full bg-white border border-line px-4 py-1.5 text-slate font-medium shadow-2xs hover:border-violet-300 hover:text-ink transition-colors select-none"
+                className="rounded-full bg-white border border-line px-4 py-1.5 text-slate font-sans text-xs font-medium shadow-2xs hover:border-violet-300 hover:text-ink transition-colors select-none"
               >
                 {chip}
               </span>

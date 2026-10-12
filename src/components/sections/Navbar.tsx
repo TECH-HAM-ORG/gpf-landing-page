@@ -152,7 +152,7 @@ export function Navbar() {
               priority
               className="h-8 w-8 object-contain shrink-0"
             />
-            <span className="text-xl sm:text-2xl font-bold tracking-tight text-ink">
+            <span className="text-xl sm:text-2xl font-bold font-display tracking-tight text-ink">
               Glob<span className="text-violet-600">PayFlow</span>
             </span>
           </Link>
@@ -169,9 +169,9 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-1.5 text-xs font-semibold rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 ${
+                  className={`px-3.5 py-1.5 text-sm font-medium font-sans rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 ${
                     isActive
-                      ? 'text-violet-600 bg-violet-50 font-bold'
+                      ? 'text-violet-600 bg-violet-50 font-semibold'
                       : 'text-slate hover:text-ink hover:bg-soft'
                   }`}
                 >
@@ -188,7 +188,7 @@ export function Navbar() {
               size="sm"
               href={`${APP_URL}/auth/sign-in`}
               external
-              className="text-slate hover:text-ink font-semibold"
+              className="text-slate hover:text-ink font-semibold font-display"
             >
               Sign in
             </Button>
@@ -196,7 +196,7 @@ export function Navbar() {
               variant="primary"
               size="sm"
               href="/contact"
-              className="rounded-full px-5 text-xs font-semibold"
+              className="rounded-full px-5 text-xs font-semibold font-display"
             >
               Request access
             </Button>
@@ -252,7 +252,7 @@ export function Navbar() {
                     height={28}
                     className="h-7 w-7 object-contain"
                   />
-                  <span className="text-lg font-bold tracking-tight text-ink">
+                  <span className="text-lg font-bold font-display tracking-tight text-ink">
                     Glob<span className="text-violet-600">PayFlow</span>
                   </span>
                 </Link>
@@ -277,9 +277,9 @@ export function Navbar() {
                       key={link.href}
                       href={link.href}
                       onClick={closeDrawer}
-                      className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-colors ${
+                      className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-sans font-medium transition-colors ${
                         isActive
-                          ? 'bg-violet-50 text-violet-700 font-bold'
+                          ? 'bg-violet-50 text-violet-700 font-semibold'
                           : 'text-ink hover:bg-soft'
                       }`}
                     >

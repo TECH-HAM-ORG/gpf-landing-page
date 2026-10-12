@@ -110,14 +110,14 @@ export function Faq() {
       <Container size="narrow">
         <Reveal>
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 border border-violet-100/80 text-violet-700 text-xs font-semibold uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 border border-violet-100/80 text-violet-700 text-[13px] font-semibold mb-4 font-sans">
               <HelpCircle className="h-3.5 w-3.5" />
               Frequently Asked Questions
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">
+            <h2 className="text-[clamp(2rem,3.6vw,3.25rem)] font-bold font-display tracking-[-0.03em] text-ink leading-[1.1]">
               Questions &amp; Answers
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate max-w-xl mx-auto">
+            <p className="mt-3 text-base text-[#475569] max-w-xl mx-auto font-sans leading-[1.6]">
               Verified facts regarding onboarding, multi-chain operations, security approvals, and developer integrations.
             </p>
           </div>
@@ -137,7 +137,7 @@ export function Faq() {
                     const firstInCat = FAQS.find((f) => f.category === cat);
                     if (firstInCat) setOpenIndex(firstInCat.id);
                   }}
-                  className={`relative px-3.5 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 ${
+                  className={`relative px-3.5 py-2 text-xs sm:text-sm font-semibold font-sans rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 ${
                     isActive
                       ? 'bg-violet-600 text-white shadow-2xs'
                       : 'text-slate hover:text-ink hover:bg-soft'
@@ -178,7 +178,7 @@ export function Faq() {
                         aria-expanded={isOpen}
                         aria-controls={panelId}
                         onClick={() => toggleAccordion(faq.id)}
-                        className="flex w-full items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-ink hover:text-violet-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 gap-4"
+                        className="flex w-full items-center justify-between p-5 text-left text-base sm:text-[17px] font-bold font-display text-ink hover:text-violet-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 gap-4"
                       >
                         <span>{faq.question}</span>
                         <div
@@ -203,7 +203,7 @@ export function Faq() {
                           transition={{ duration: 0.28, ease: 'easeInOut' }}
                           className="overflow-hidden"
                         >
-                          <div className="border-t border-line/70 p-5 pt-3 text-xs sm:text-sm text-slate leading-relaxed bg-soft/40">
+                          <div className="border-t border-line/70 p-5 pt-3 text-sm sm:text-[15px] text-[#475569] leading-[1.6] bg-soft/40 font-sans font-normal">
                             {faq.answer}
                           </div>
                         </motion.div>
