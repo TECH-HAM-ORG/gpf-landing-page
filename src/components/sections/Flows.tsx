@@ -10,7 +10,7 @@ const FLOW_CARDS = [
       'Generate unique deposit addresses across 11 blockchains and receive automatic settlement notifications.',
     icon: ArrowDownLeft,
     imageType: 'browser' as const,
-    imageSrc: '/images/shot-deposit.png',
+    imageSrc: '/images/gpf-deposit.png',
     imageAlt: 'Deposit Invoice Interface',
     frameUrl: 'backoffice.globpayflow.com/deposits',
     bullets: [
@@ -27,7 +27,7 @@ const FLOW_CARDS = [
       'Send outbound crypto transfers strictly directed to authorized recipient addresses with approval flow.',
     icon: ArrowUpRight,
     imageType: 'browser' as const,
-    imageSrc: '/images/shot-withdraw.png',
+    imageSrc: '/images/gpf-withdraw.png',
     imageAlt: 'Withdrawal Approval Form',
     frameUrl: 'backoffice.globpayflow.com/withdrawals',
     bullets: [
