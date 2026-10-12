@@ -25,18 +25,18 @@ export function Footer() {
     {
       title: 'Product',
       links: [
-        { label: 'How it works', href: '#how-it-works', isInternal: false },
-        { label: 'Flows', href: '#flows', isInternal: false },
-        { label: 'Dashboard', href: '#dashboard', isInternal: false },
-        { label: 'Networks', href: '#networks', isInternal: false },
-        { label: 'Security', href: '#security', isInternal: false },
+        { label: 'How it works', href: '/#how-it-works', isInternal: true },
+        { label: 'Flows', href: '/#flows', isInternal: true },
+        { label: 'Dashboard', href: '/#dashboard', isInternal: true },
+        { label: 'Networks', href: '/#networks', isInternal: true },
+        { label: 'Security', href: '/#security', isInternal: true },
       ],
     },
     {
       title: 'Developers',
       links: [
         { label: 'API Documentation', href: DOCS_URL, isInternal: false, isExternal: true },
-        { label: 'REST Endpoints', href: '#developers', isInternal: false },
+        { label: 'REST Endpoints', href: '/#developers', isInternal: true },
       ],
     },
     {
