@@ -158,7 +158,7 @@ export function Hero() {
               >
                 <BrowserFrame
                   url="backoffice.globpayflow.com"
-                  src="/images/shot-wallet.png"
+                  src="/images/gpf-wallet.png"
                   alt="Merchant wallet balance and deposit interface"
                   width={480}
                   height={270}

@@ -27,7 +27,7 @@ const DASHBOARD_TABS: DashboardTab[] = [
     title: 'Wallet',
     line: 'Balances for every supported currency',
     slug: 'wallet',
-    image: '/images/shot-wallet.png',
+    image: '/images/gpf-wallet.png',
     icon: Wallet,
   },
   {
@@ -35,7 +35,7 @@ const DASHBOARD_TABS: DashboardTab[] = [
     title: 'Deposit',
     line: 'Create deposit addresses per order',
     slug: 'deposit',
-    image: '/images/shot-deposit.png',
+    image: '/images/gpf-deposit.png',
     icon: ArrowDownLeft,
   },
   {
@@ -43,7 +43,7 @@ const DASHBOARD_TABS: DashboardTab[] = [
     title: 'Withdraw',
     line: 'Send to approved addresses with clear fee and net amount',
     slug: 'withdraw',
-    image: '/images/shot-withdraw.png',
+    image: '/images/gpf-withdraw.png',
     icon: ArrowUpRight,
   },
   {
@@ -51,7 +51,7 @@ const DASHBOARD_TABS: DashboardTab[] = [
     title: 'Transactions',
     line: 'Search and filter all activity',
     slug: 'transactions',
-    image: '/images/shot-transactions.png',
+    image: '/images/gpf-transactions.png',
     icon: ReceiptText,
   },
   {
@@ -59,7 +59,7 @@ const DASHBOARD_TABS: DashboardTab[] = [
     title: 'Whitelist Addresses',
     line: 'Control exactly where funds can go',
     slug: 'whitelist-addresses',
-    image: '/images/shot-whitelist.png',
+    image: '/images/gpf-whitelist.png',
     icon: ShieldCheck,
   },
 ];
