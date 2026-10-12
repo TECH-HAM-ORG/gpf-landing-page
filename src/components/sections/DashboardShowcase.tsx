@@ -243,7 +243,7 @@ export function DashboardShowcase() {
               className="lg:col-span-8 w-full"
             >
               <BrowserFrame
-                url={`app.globpayflow/${currentTab.slug}`}
+                url={`backoffice.globpayflow.com/${currentTab.slug}`}
                 className="w-full shadow-card border-line/80 overflow-hidden"
                 toolbarRight={
                   <div className="flex items-center gap-1.5 text-xs font-sans text-muted">

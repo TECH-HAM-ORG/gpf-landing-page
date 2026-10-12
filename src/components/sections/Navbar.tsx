@@ -3,10 +3,13 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { Container, Button } from '@/components/ui';
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://app.globpayflow.com';
+const DOCS_URL =
+  process.env.NEXT_PUBLIC_DOCS_URL ||
+  'https://gpf-app.erstech-localserver.xyz/api/user-api-docs#/overview';
 
 const NAV_LINKS = [
   { label: 'How it works', href: '#how-it-works' },
@@ -19,6 +22,9 @@ const NAV_LINKS = [
 ] as const;
 
 export function Navbar() {
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('');
@@ -36,8 +42,10 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Active section tracking via IntersectionObserver
+  // Active section tracking via IntersectionObserver (only on homepage)
   useEffect(() => {
+    if (!isHomePage) return;
+
     const sectionIds = NAV_LINKS.map((link) => link.href.replace('#', ''));
     const sectionElements = sectionIds
       .map((id) => document.getElementById(id))
@@ -49,7 +57,6 @@ export function Navbar() {
       (entries) => {
         const visibleEntries = entries.filter((entry) => entry.isIntersecting);
         if (visibleEntries.length > 0) {
-          // Sort by visibility ratio or vertical position
           const topEntry = visibleEntries.reduce((prev, curr) =>
             curr.intersectionRatio > prev.intersectionRatio ? curr : prev
           );
@@ -64,7 +71,7 @@ export function Navbar() {
 
     sectionElements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [isHomePage]);
 
   const closeDrawer = useCallback(() => {
     setMobileMenuOpen(false);
@@ -157,48 +164,44 @@ export function Navbar() {
             </span>
           </Link>
 
-          {/* Center Links (Anchor Scroll with Active-Section Highlight) */}
+          {/* Center Links (Anchor Scroll on Homepage / Cross-page Nav on Other Pages) */}
           <nav
             className="hidden lg:flex items-center gap-1"
             aria-label="Main Navigation"
           >
             {NAV_LINKS.map((link) => {
               const sectionId = link.href.replace('#', '');
-              const isActive = activeSection === sectionId;
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`px-3.5 py-1.5 text-sm font-medium font-sans rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 ${
-                    isActive
-                      ? 'text-violet-600 bg-violet-50 font-semibold'
-                      : 'text-slate hover:text-ink hover:bg-soft'
-                  }`}
-                >
+              const isActive = isHomePage && activeSection === sectionId;
+              const targetHref = isHomePage ? link.href : `/${link.href}`;
+
+              const linkClasses = `px-3.5 py-1.5 text-sm font-medium font-sans rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 ${
+                isActive
+                  ? 'text-violet-600 bg-violet-50 font-semibold'
+                  : 'text-slate hover:text-ink hover:bg-soft'
+              }`;
+
+              return isHomePage ? (
+                <a key={link.href} href={targetHref} className={linkClasses}>
                   {link.label}
                 </a>
+              ) : (
+                <Link key={link.href} href={targetHref} className={linkClasses}>
+                  {link.label}
+                </Link>
               );
             })}
           </nav>
 
-          {/* Right CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="sm"
-              href={`${APP_URL}/auth/sign-in`}
-              external
-              className="text-slate hover:text-ink font-semibold font-display"
-            >
-              Sign in
-            </Button>
+          {/* Right CTA: Documentation Button */}
+          <div className="hidden sm:flex items-center">
             <Button
               variant="primary"
               size="sm"
-              href="/contact"
+              href={DOCS_URL}
+              external
               className="rounded-full px-5 text-xs font-semibold font-display"
             >
-              Request access
+              Documentation
             </Button>
           </div>
 
@@ -271,45 +274,51 @@ export function Navbar() {
               <nav className="mt-6 flex flex-col space-y-1.5" aria-label="Mobile Navigation Links">
                 {NAV_LINKS.map((link) => {
                   const sectionId = link.href.replace('#', '');
-                  const isActive = activeSection === sectionId;
-                  return (
+                  const isActive = isHomePage && activeSection === sectionId;
+                  const targetHref = isHomePage ? link.href : `/${link.href}`;
+
+                  const linkClasses = `flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-sans font-medium transition-colors ${
+                    isActive
+                      ? 'bg-violet-50 text-violet-700 font-semibold'
+                      : 'text-ink hover:bg-soft'
+                  }`;
+
+                  return isHomePage ? (
                     <a
                       key={link.href}
-                      href={link.href}
+                      href={targetHref}
                       onClick={closeDrawer}
-                      className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-sans font-medium transition-colors ${
-                        isActive
-                          ? 'bg-violet-50 text-violet-700 font-semibold'
-                          : 'text-ink hover:bg-soft'
-                      }`}
+                      className={linkClasses}
                     >
                       <span>{link.label}</span>
                       <ArrowRight className="h-3.5 w-3.5 text-muted" aria-hidden="true" />
                     </a>
+                  ) : (
+                    <Link
+                      key={link.href}
+                      href={targetHref}
+                      onClick={closeDrawer}
+                      className={linkClasses}
+                    >
+                      <span>{link.label}</span>
+                      <ArrowRight className="h-3.5 w-3.5 text-muted" aria-hidden="true" />
+                    </Link>
                   );
                 })}
               </nav>
             </div>
 
-            {/* Drawer Actions */}
-            <div className="pt-6 border-t border-line flex flex-col gap-2.5">
-              <Button
-                variant="outline"
-                size="md"
-                href={`${APP_URL}/auth/sign-in`}
-                external
-                className="w-full text-sm font-semibold justify-center"
-              >
-                Sign in
-              </Button>
+            {/* Drawer Actions: Documentation Button */}
+            <div className="pt-6 border-t border-line flex flex-col">
               <Button
                 variant="primary"
                 size="md"
-                href="/contact"
+                href={DOCS_URL}
+                external
                 onClick={closeDrawer}
                 className="w-full text-sm font-semibold justify-center"
               >
-                Request access
+                Documentation
               </Button>
             </div>
           </div>

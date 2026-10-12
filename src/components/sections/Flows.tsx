@@ -12,7 +12,7 @@ const FLOW_CARDS = [
     imageType: 'browser' as const,
     imageSrc: '/images/shot-deposit.png',
     imageAlt: 'Deposit Invoice Interface',
-    frameUrl: 'app.globpayflow/deposits',
+    frameUrl: 'backoffice.globpayflow.com/deposits',
     bullets: [
       'Unique address per order',
       'Automatic status updates',
@@ -29,7 +29,7 @@ const FLOW_CARDS = [
     imageType: 'browser' as const,
     imageSrc: '/images/shot-withdraw.png',
     imageAlt: 'Withdrawal Approval Form',
-    frameUrl: 'app.globpayflow/withdrawals',
+    frameUrl: 'backoffice.globpayflow.com/withdrawals',
     bullets: [
       'Approved addresses only',
       'Pending approval flow',
@@ -46,7 +46,7 @@ const FLOW_CARDS = [
     imageType: 'fiat' as const,
     imageSrc: '/images/fiat-argentina.webp',
     imageAlt: 'Bank Payouts in Argentina and Brazil',
-    frameUrl: 'app.globpayflow/fiat',
+    frameUrl: 'backoffice.globpayflow.com/fiat',
     bullets: [
       'Bank payouts in Argentina and Brazil',
       'Beneficiary details',

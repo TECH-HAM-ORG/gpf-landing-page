@@ -25,27 +25,27 @@ export function Footer() {
     {
       title: 'Product',
       links: [
-        { label: 'How it works', href: '#how-it-works', isInternal: false },
-        { label: 'Flows', href: '#flows', isInternal: false },
-        { label: 'Dashboard', href: '#dashboard', isInternal: false },
-        { label: 'Networks', href: '#networks', isInternal: false },
-        { label: 'Security', href: '#security', isInternal: false },
+        { label: 'How it works', href: '/#how-it-works', isInternal: true },
+        { label: 'Flows', href: '/#flows', isInternal: true },
+        { label: 'Dashboard', href: '/#dashboard', isInternal: true },
+        { label: 'Networks', href: '/#networks', isInternal: true },
+        { label: 'Security', href: '/#security', isInternal: true },
       ],
     },
     {
       title: 'Developers',
       links: [
         { label: 'API Documentation', href: DOCS_URL, isInternal: false, isExternal: true },
-        { label: 'REST Endpoints', href: '#developers', isInternal: false },
+        { label: 'REST Endpoints', href: '/#developers', isInternal: true },
       ],
     },
-    {
-      title: 'Company',
-      links: [
-        { label: 'Request Access', href: '/contact', isInternal: true },
-        { label: 'Contact', href: '/contact', isInternal: true },
-      ],
-    },
+    // {
+    //   title: 'Company',
+    //   links: [
+    //     { label: 'Request Access', href: '/contact', isInternal: true },
+    //     { label: 'Contact', href: '/contact', isInternal: true },
+    //   ],
+    // },
     {
       title: 'Legal',
       links: [
@@ -58,8 +58,8 @@ export function Footer() {
   return (
     <footer className="border-t border-slate-800 bg-[#0F172A] text-slate-400 pt-16 pb-12">
       <Container>
-        {/* Main Grid: Brand + 4 Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 pb-12 border-b border-slate-800">
+        {/* Main Grid: Brand + 3 Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
           {/* Brand Info (White Variant Logo) */}
           <div className="lg:col-span-2 space-y-4">
             <Link

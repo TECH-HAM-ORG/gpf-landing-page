@@ -1,8 +1,9 @@
-import React from 'react';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { Container, Button, Reveal } from '@/components/ui';
 
-const DOCS_URL = process.env.NEXT_PUBLIC_DOCS_URL || 'https://docs.globpayflow.com';
+const DOCS_URL =
+  process.env.NEXT_PUBLIC_DOCS_URL ||
+  'https://gpf-app.erstech-localserver.xyz/api/user-api-docs#/overview';
 
 export function FinalCta() {
   return (
@@ -33,19 +34,9 @@ export function FinalCta() {
                 <Button
                   variant="secondary"
                   size="lg"
-                  href="/contact"
-                  className="bg-white text-violet-900 hover:bg-violet-50 font-bold border-transparent shadow-lg"
-                >
-                  <span>Request access</span>
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Button>
-
-                <Button
-                  variant="outline"
-                  size="lg"
                   href={DOCS_URL}
-                  isExternal
-                  className="border-white/40 text-white hover:bg-white/10 hover:border-white font-medium"
+                  external
+                  className="bg-white text-violet-900 hover:bg-violet-50 font-bold border-transparent shadow-lg"
                 >
                   <span>Read the docs</span>
                   <ExternalLink className="h-4 w-4" aria-hidden="true" />

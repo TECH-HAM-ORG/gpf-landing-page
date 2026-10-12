@@ -184,10 +184,10 @@ export function CompaniesFees() {
                   <span className="text-xs font-medium text-slate">
                     Custom rates for your enterprise
                   </span>
-                  <Button variant="primary" size="sm" href="/contact">
+                  {/* <Button variant="primary" size="sm" href="/contact">
                     <span>Talk to us</span>
                     <ArrowRight className="h-3.5 w-3.5" />
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
             </Reveal>
