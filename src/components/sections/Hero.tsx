@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { CheckCircle2, ArrowRight, ExternalLink, ArrowDownLeft, Clock } from 'lucide-react';
+import { CheckCircle2, ExternalLink, ArrowDownLeft, Clock } from 'lucide-react';
 import { Container, Button, Badge, SmartImage, BrowserFrame, FloatingCard } from '@/components/ui';
 
 const DOCS_URL =
@@ -79,16 +79,12 @@ export function Hero() {
               Accept crypto deposits, withdraw to wallets or local banks, and track everything from one merchant dashboard or API.
             </motion.p>
 
-            {/* CTAs */}
+            {/* CTA */}
             <motion.div
               variants={itemVariants}
               className="mt-8 flex flex-wrap items-center gap-4"
             >
-              <Button variant="primary" size="lg" href="/contact">
-                <span>Request access</span>
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Button>
-              <Button variant="secondary" size="lg" href={DOCS_URL} external>
+              <Button variant="primary" size="lg" href={DOCS_URL} external>
                 <span>Read the API docs</span>
                 <ExternalLink className="h-4 w-4" aria-hidden="true" />
               </Button>
@@ -142,8 +138,8 @@ export function Hero() {
                 className="absolute -bottom-6 -left-3 sm:-bottom-8 sm:-left-6 w-[78%] max-w-[340px] sm:max-w-[390px] z-20 -rotate-2"
               >
                 <BrowserFrame
-                  url="app.globpayflow"
-                  src="/images/shot-wallet.png"
+                  url="backoffice.globpayflow.com"
+                  src="/images/gpf-wallet.png"
                   alt="Merchant wallet balance and deposit interface"
                   width={480}
                   height={270}
@@ -190,13 +186,6 @@ export function Hero() {
                   statusVariant="amber"
                 />
               </motion.div>
-            </div>
-
-            {/* Tiny Sample data notice */}
-            <div className="mt-10 sm:mt-12 text-right pr-2">
-              <span className="text-xs font-semibold text-muted font-sans">
-                Sample data
-              </span>
             </div>
           </div>
         </div>

@@ -19,7 +19,7 @@ export function BrowserFrame({
   width,
   height,
   priority,
-  url = 'app.globpayflow',
+  url = 'backoffice.globpayflow.com',
   children,
   className = '',
   toolbarRight,
