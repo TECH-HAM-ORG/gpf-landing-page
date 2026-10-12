@@ -16,7 +16,7 @@ import { Container, Button, Reveal } from '@/components/ui';
 export function CompaniesFees() {
   const companyFeatures = [
     {
-      title: 'Multiple merchants per company',
+      title: 'One merchant per company',
       icon: <Building2 className="h-4 w-4 text-violet-600" />,
     },
     {

@@ -35,7 +35,7 @@ const DASHBOARD_TABS: DashboardTab[] = [
     title: 'Deposit',
     line: 'Create deposit addresses per order',
     slug: 'deposit',
-    image: '/images/gpf-deposit.png',
+    image: '/images/deposit.webp',
     icon: ArrowDownLeft,
   },
   {
@@ -59,7 +59,7 @@ const DASHBOARD_TABS: DashboardTab[] = [
     title: 'Whitelist Addresses',
     line: 'Control exactly where funds can go',
     slug: 'whitelist-addresses',
-    image: '/images/gpf-whitelist.png',
+    image: '/images/whitelistaddress.webp',
     icon: ShieldCheck,
   },
 ];
