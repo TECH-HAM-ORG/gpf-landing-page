@@ -11,7 +11,6 @@ import {
   NetworksExplorer,
   CompaniesFees,
   Security,
-  DeveloperApi,
   Faq,
   FinalCta,
   Footer,
@@ -32,7 +31,6 @@ export default function HomePage() {
         <NetworksExplorer />
         <CompaniesFees />
         <Security />
-        <DeveloperApi />
         <Faq />
         <FinalCta />
       </main>

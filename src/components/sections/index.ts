@@ -10,6 +10,7 @@ export * from './NetworksExplorer';
 export * from './CompaniesFees';
 export * from './Security';
 export * from './DeveloperApi';
+export * from './DeveloperDocSections';
 export * from './Faq';
 export * from './FinalCta';
 export * from './Footer';

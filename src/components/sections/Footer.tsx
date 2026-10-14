@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Container } from '@/components/ui';
 
 const DOCS_URL =
@@ -19,7 +22,33 @@ const SOCIAL_LINKS = [
 ].filter(Boolean) as { label: string; href: string }[];
 
 export function Footer() {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
+
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    // If clicking a link pointing to the exact same page, scroll smoothly to the top
+    if (pathname === href) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    // If it's a hash anchor on the homepage and we are already on the homepage
+    if (href.startsWith('/#') && pathname === '/') {
+      e.preventDefault();
+      const targetId = href.replace('/#', '');
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+  };
 
   const columns = [
     {
@@ -36,7 +65,7 @@ export function Footer() {
       title: 'Developers',
       links: [
         { label: 'API Documentation', href: DOCS_URL, isInternal: false, isExternal: true },
-        { label: 'REST Endpoints', href: '/#developers', isInternal: true },
+        { label: 'REST Endpoints', href: '/developers', isInternal: true },
       ],
     },
     // {
@@ -64,6 +93,7 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <Link
               href="/"
+              onClick={(e) => handleLinkClick(e, '/')}
               className="inline-flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 py-1"
             >
               <Image
@@ -112,6 +142,7 @@ export function Footer() {
                     {link.isInternal ? (
                       <Link
                         href={link.href}
+                        onClick={(e) => handleLinkClick(e, link.href)}
                         className="text-slate-400 hover:text-violet-300 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-violet-500 rounded"
                       >
                         {link.label}

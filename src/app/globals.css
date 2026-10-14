@@ -30,49 +30,51 @@
   --color-danger: #EF4444;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
-  color-scheme: light;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    color-scheme: light;
+  }
 
-body {
-  background-color: #FFFFFF;
-  color: #0F172A;
-  font-family: var(--font-sans);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+  body {
+    background-color: #FFFFFF;
+    color: #0F172A;
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
 
-p {
-  color: #475569;
-  line-height: 1.6;
-}
+  p {
+    color: #475569;
+    line-height: 1.6;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-}
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
 
-h1 {
-  font-weight: 800;
-  font-size: clamp(2.5rem, 5.2vw, 4.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.035em;
-}
+  h1 {
+    font-weight: 800;
+    font-size: clamp(2.5rem, 5.2vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+  }
 
-h2 {
-  font-weight: 700;
-  font-size: clamp(2rem, 3.6vw, 3.25rem);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-}
+  h2 {
+    font-weight: 700;
+    font-size: clamp(2rem, 3.6vw, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
 
-h3, h4, h5, h6 {
-  font-weight: 700;
-}
+  h3, h4, h5, h6 {
+    font-weight: 700;
+  }
 
-button {
-  font-family: var(--font-display);
+  button {
+    font-family: var(--font-display);
+  }
 }
 
 /* Custom Scrollbar */
