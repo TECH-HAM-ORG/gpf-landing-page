@@ -26,7 +26,7 @@ export function FinalCta() {
                 Ready to accept crypto?
               </h2>
 
-              <p className="mt-4 text-base sm:text-[19px] text-violet-100 font-normal leading-[1.6] font-sans">
+              <p className="mt-4 text-base sm:text-[19px] text-white font-normal leading-[1.6] font-sans">
                 Connect your business to 11 blockchains, configure transparent fee structures, and disburse local fiat payouts in Argentina and Brazil.
               </p>
 

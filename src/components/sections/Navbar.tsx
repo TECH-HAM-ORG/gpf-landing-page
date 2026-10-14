@@ -1,33 +1,33 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import { Menu, X, ArrowRight } from 'lucide-react';
-import { Container, Button } from '@/components/ui';
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { Menu, X, ArrowRight } from "lucide-react";
+import { Container, Button } from "@/components/ui";
 
 const DOCS_URL =
   process.env.NEXT_PUBLIC_DOCS_URL ||
-  'https://gpf-app.erstech-localserver.xyz/api/user-api-docs#/overview';
+  "https://gpf-app.erstech-localserver.xyz/api/user-api-docs#/overview";
 
 const NAV_LINKS = [
-  { label: 'How it works', href: '#how-it-works' },
-  { label: 'Flows', href: '#flows' },
-  { label: 'Dashboard', href: '#dashboard' },
-  { label: 'Networks', href: '#networks' },
-  { label: 'Security', href: '#security' },
-  { label: 'Developers', href: '#developers' },
-  { label: 'FAQ', href: '#faq' },
+  { label: "How it works", href: "#how-it-works" },
+  { label: "Flows", href: "#flows" },
+  { label: "Dashboard", href: "#dashboard" },
+  { label: "Networks", href: "#networks" },
+  { label: "Security", href: "#security" },
+  { label: "Developers", href: "/developers" },
+  { label: "FAQ", href: "#faq" },
 ] as const;
 
 export function Navbar() {
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
+  const isHomePage = pathname === "/";
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>('');
+  const [activeSection, setActiveSection] = useState<string>("");
   const drawerRef = useRef<HTMLDivElement>(null);
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -38,15 +38,17 @@ export function Navbar() {
     };
 
     handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Active section tracking via IntersectionObserver (only on homepage)
   useEffect(() => {
     if (!isHomePage) return;
 
-    const sectionIds = NAV_LINKS.map((link) => link.href.replace('#', ''));
+    const sectionIds = NAV_LINKS.filter((link) =>
+      link.href.startsWith("#"),
+    ).map((link) => link.href.replace("#", ""));
     const sectionElements = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
@@ -58,15 +60,15 @@ export function Navbar() {
         const visibleEntries = entries.filter((entry) => entry.isIntersecting);
         if (visibleEntries.length > 0) {
           const topEntry = visibleEntries.reduce((prev, curr) =>
-            curr.intersectionRatio > prev.intersectionRatio ? curr : prev
+            curr.intersectionRatio > prev.intersectionRatio ? curr : prev,
           );
           setActiveSection(topEntry.target.id);
         }
       },
       {
-        rootMargin: '-20% 0px -60% 0px',
+        rootMargin: "-20% 0px -60% 0px",
         threshold: [0, 0.25, 0.5, 0.75, 1],
-      }
+      },
     );
 
     sectionElements.forEach((el) => observer.observe(el));
@@ -82,7 +84,7 @@ export function Navbar() {
   useEffect(() => {
     if (mobileMenuOpen) {
       const originalStyle = window.getComputedStyle(document.body).overflow;
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
       return () => {
         document.body.style.overflow = originalStyle;
       };
@@ -94,15 +96,16 @@ export function Navbar() {
     if (!mobileMenuOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         closeDrawer();
         return;
       }
 
-      if (e.key === 'Tab' && drawerRef.current) {
-        const focusableElements = drawerRef.current.querySelectorAll<HTMLElement>(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
+      if (e.key === "Tab" && drawerRef.current) {
+        const focusableElements =
+          drawerRef.current.querySelectorAll<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+          );
         if (focusableElements.length === 0) return;
 
         const firstElement = focusableElements[0];
@@ -122,15 +125,15 @@ export function Navbar() {
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [mobileMenuOpen, closeDrawer]);
 
   // Focus drawer on open
   useEffect(() => {
     if (mobileMenuOpen && drawerRef.current) {
       const firstFocusable = drawerRef.current.querySelector<HTMLElement>(
-        'button, [href], input'
+        "button, [href], input",
       );
       firstFocusable?.focus();
     }
@@ -140,8 +143,8 @@ export function Navbar() {
     <header
       className={`sticky top-0 z-50 transition-all duration-200 ${
         isScrolled
-          ? 'bg-white/80 backdrop-blur-md border-b border-line shadow-xs'
-          : 'bg-transparent border-b border-transparent'
+          ? "bg-white/80 backdrop-blur-md border-b border-line shadow-xs"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
       <Container>
@@ -149,6 +152,12 @@ export function Navbar() {
           {/* Left: Logo & Wordmark */}
           <Link
             href="/"
+            onClick={(e) => {
+              if (pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
             className="flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 py-1"
           >
             <Image
@@ -170,24 +179,41 @@ export function Navbar() {
             aria-label="Main Navigation"
           >
             {NAV_LINKS.map((link) => {
-              const sectionId = link.href.replace('#', '');
-              const isActive = isHomePage && activeSection === sectionId;
-              const targetHref = isHomePage ? link.href : `/${link.href}`;
+              const isRoute = link.href.startsWith("/");
+              const sectionId = link.href.replace("#", "");
+              const isActive = isRoute
+                ? pathname === link.href
+                : isHomePage && activeSection === sectionId;
+              const targetHref = isRoute
+                ? link.href
+                : isHomePage
+                  ? link.href
+                  : `/${link.href}`;
 
               const linkClasses = `px-3.5 py-1.5 text-sm font-medium font-sans rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 ${
                 isActive
-                  ? 'text-violet-600 bg-violet-50 font-semibold'
-                  : 'text-slate hover:text-ink hover:bg-soft'
+                  ? "text-violet-600 bg-violet-50 font-semibold"
+                  : "text-slate hover:text-ink hover:bg-soft"
               }`;
 
-              return isHomePage ? (
+              return isRoute || !isHomePage ? (
+                <Link
+                  key={link.href}
+                  href={targetHref}
+                  onClick={(e) => {
+                    if (pathname === targetHref) {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                  }}
+                  className={linkClasses}
+                >
+                  {link.label}
+                </Link>
+              ) : (
                 <a key={link.href} href={targetHref} className={linkClasses}>
                   {link.label}
                 </a>
-              ) : (
-                <Link key={link.href} href={targetHref} className={linkClasses}>
-                  {link.label}
-                </Link>
               );
             })}
           </nav>
@@ -271,19 +297,48 @@ export function Navbar() {
               </div>
 
               {/* Drawer Navigation Links */}
-              <nav className="mt-6 flex flex-col space-y-1.5" aria-label="Mobile Navigation Links">
+              <nav
+                className="mt-6 flex flex-col space-y-1.5"
+                aria-label="Mobile Navigation Links"
+              >
                 {NAV_LINKS.map((link) => {
-                  const sectionId = link.href.replace('#', '');
-                  const isActive = isHomePage && activeSection === sectionId;
-                  const targetHref = isHomePage ? link.href : `/${link.href}`;
+                  const isRoute = link.href.startsWith("/");
+                  const sectionId = link.href.replace("#", "");
+                  const isActive = isRoute
+                    ? pathname === link.href
+                    : isHomePage && activeSection === sectionId;
+                  const targetHref = isRoute
+                    ? link.href
+                    : isHomePage
+                      ? link.href
+                      : `/${link.href}`;
 
                   const linkClasses = `flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-sans font-medium transition-colors ${
                     isActive
-                      ? 'bg-violet-50 text-violet-700 font-semibold'
-                      : 'text-ink hover:bg-soft'
+                      ? "bg-violet-50 text-violet-700 font-semibold"
+                      : "text-ink hover:bg-soft"
                   }`;
 
-                  return isHomePage ? (
+                  return isRoute || !isHomePage ? (
+                    <Link
+                      key={link.href}
+                      href={targetHref}
+                      onClick={(e) => {
+                        closeDrawer();
+                        if (pathname === targetHref) {
+                          e.preventDefault();
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }
+                      }}
+                      className={linkClasses}
+                    >
+                      <span>{link.label}</span>
+                      <ArrowRight
+                        className="h-3.5 w-3.5 text-muted"
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  ) : (
                     <a
                       key={link.href}
                       href={targetHref}
@@ -291,18 +346,11 @@ export function Navbar() {
                       className={linkClasses}
                     >
                       <span>{link.label}</span>
-                      <ArrowRight className="h-3.5 w-3.5 text-muted" aria-hidden="true" />
+                      <ArrowRight
+                        className="h-3.5 w-3.5 text-muted"
+                        aria-hidden="true"
+                      />
                     </a>
-                  ) : (
-                    <Link
-                      key={link.href}
-                      href={targetHref}
-                      onClick={closeDrawer}
-                      className={linkClasses}
-                    >
-                      <span>{link.label}</span>
-                      <ArrowRight className="h-3.5 w-3.5 text-muted" aria-hidden="true" />
-                    </Link>
                   );
                 })}
               </nav>
